@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html data-theme="coffee" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.24.0/full.css" integrity="sha512-bOg5XFxhnYTM2CrX2735N6jM3A21of/bMdubC65bPCXB9hcKAqCZ47Peb67jX6PLqyjC7o5ViSVbR3oPq+ZosQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+    <body>
+        <div class="flex flex-col justify-center items-center mt-6">
+
+            <div class="flex flex-col justify-center items-center my-6 border-solid border-2 border-sky-500 rounded p-3.5 shadow-css ">
+                <div class="flex flex-col justify-center items-center my-2">
+                    <span class="text-2xl">Teachers Search</span>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <form method="GET" action="/search" class="flex flex-col justify-center items-center">
+                        <input name="lastname" type="text" class="input input-bordered w-full max-w-xs" placeholder="Insert teacher's lastname" autofocus/>
+                        <br><br>
+                        <button class="btn" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center items-center my-4 border-solid border-2 border-sky-500 rounded p-3.5 shadow-css">
+                <div class="flex flex-col justify-center items-center border-solid my-4 ">
+                    <span class="text-2xl">Teachers Insert</span>
+                </div>
+                <div class="flex flex-col justify-center items-center ">
+                    <form method="GET" action="/insert" class="flex flex-col justify-center items-center">
+                        <input name="lastname" type="text" class="input input-bordered w-full max-w-xs" placeholder="Last name" autofocus required/><br>
+                        <input name="firstname" type="text" class="input input-bordered w-full max-w-xs" placeholder="First name" required/>
+                        <br><br>
+                        <button class="btn" type="submit">Insert</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+<!--        <div th:if="${test=="${sqlError}">-->
+<!--            <p>Error in insert. Please try again</p>-->
+<!--        </div>-->
+
+
+        <div class="alert alert-error shadow-lg " th:if="${teachersNotFound==true}">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>No teachers found</span>
+            </div>
+        </div>
+    </body>
+</html>

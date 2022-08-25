@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-theme="coffee" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.24.0/full.css" integrity="sha512-bOg5XFxhnYTM2CrX2735N6jM3A21of/bMdubC65bPCXB9hcKAqCZ47Peb67jX6PLqyjC7o5ViSVbR3oPq+ZosQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body class="flex flex-col justify-center items-center h-full w-full">
+
+        <div class="flex flex-col justify-center items-center mt-20 h-80 w-80">
+            <div class="">
+                <div class=" mb-4 text-2xl text-center">
+                    <h1 >Login</h1>
+                </div>
+                <form class="flex flex-col justify-center items-center "method="POST" >
+                    <div class="mb-2">
+                        <input class="input input-bordered w-full max-w-xs" type="email" name="eMail" required placeholder="E-mail">
+                        <span></span>
+                    </div>
+                    <div class="mb-4">
+                        <input class="input input-bordered w-full max-w-xs" type="password" name="password" required placeholder="Password">
+                        <span></span>
+                    </div>
+                    <div >
+                        <button class="btn mb-4" type="submit">Sign in</button>
+                    </div>
+                </form>
+                <div class="mb-3 text-center" >
+                    <a href="#">Lost your password?</a>
+                </div>
+            </div>
+            <div class="mr-3 text-center" >
+                <p>Don't have an account? <a class="font-bold" href="#">Sign up here!</a></p>
+            </div>
+        </div>
+
+        <div class="text-yellow-400">
+            <p  th:if="${error==true}">Login error</p>
+        </div>
+
+    </body>
+</html>

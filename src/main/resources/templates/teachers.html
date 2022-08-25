@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-theme="coffee" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.24.0/full.css" integrity="sha512-bOg5XFxhnYTM2CrX2735N6jM3A21of/bMdubC65bPCXB9hcKAqCZ47Peb67jX6PLqyjC7o5ViSVbR3oPq+ZosQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="overflow-x-auto flex flex-col justify-center items-center">
+        <table class="table table-compact w-full mb-4">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+
+            <tr th:each="teacher : ${teachers}">
+
+                    <td th:text="${teacher.getId()}"></td>
+                    <td th:text="${teacher.getFirstname()}"></td>
+                    <td th:text="${teacher.getLastname()}"></td>
+                    <td><button class="btn btn-xs"><a th:href="@{/delete(id=${teacher.getId},firstname=${teacher.getFirstname()},lastname=${teacher.getLastname()})}">Delete</a></button></td>
+                    <td><button class="btn btn-xs"><a th:href="@{/teacherupdate(id=${teacher.getId()},firstname=${teacher.getFirstname()},lastname=${teacher.getLastname()})}">Update</a></button></td>
+
+            </tr>
+
+        </table>
+        <button class="btn btn-wide"><a th:href="@{teachersmenu}">Back to menu</a></button>
+
+
+    </div>
+
+<!--    <div>-->
+<!--        <th:if test="${deleteAPIError}">-->
+<!--            <p>Something went wrong with Delete</p>-->
+<!--        </th:if>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <th:if test="${updateAPIError}">-->
+<!--            <p>Something went wrong with Update</p>-->
+<!--        </th:if>-->
+<!--    </div>-->
+
+</body>
+</html>

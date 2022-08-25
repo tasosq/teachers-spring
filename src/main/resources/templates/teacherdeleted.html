@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html data-theme="coffee" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.24.0/full.css" integrity="sha512-bOg5XFxhnYTM2CrX2735N6jM3A21of/bMdubC65bPCXB9hcKAqCZ47Peb67jX6PLqyjC7o5ViSVbR3oPq+ZosQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="flex flex-col justify-center items-center my-8 h-full">
+        <p class="my-3 text-2xl" th:text="|Teacher ${teacher.getFirstname()} ${teacher.getLastname()} was successfully deleted|"></p>
+        <button class="btn btn-wide"><a th:href="@{teachersmenu}">Back to menu</a></button>
+    </div>
+</body>
+</html>

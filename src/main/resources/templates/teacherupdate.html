@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html data-theme="coffee" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.24.0/full.css" integrity="sha512-bOg5XFxhnYTM2CrX2735N6jM3A21of/bMdubC65bPCXB9hcKAqCZ47Peb67jX6PLqyjC7o5ViSVbR3oPq+ZosQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="flex flex-col justify-center items-center mt-20" >
+        <form  class=" flex flex-col items-center " method="GET" action="/update">
+            <input class="input input-bordered w-full max-w-xs" type="text" th:name="id" th:value="${param.id}" readonly><br>
+            <input class="input input-bordered w-full max-w-xs"  type="text" th:name="firstname" th:value="${param.firstname}"><br>
+            <input class="input input-bordered w-full max-w-xs" type="text" th:name="lastname" th:value="${param.lastname}"><br><br>
+            <button class="btn" type="submit">Update Teacher</button>
+        </form>
+        <div th:if="${fail==true}"> Something went wrong!</div>
+    </div>
+</body>
+</html>
